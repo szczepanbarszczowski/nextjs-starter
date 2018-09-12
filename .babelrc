@@ -1,0 +1,28 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    ["inline-react-svg"],
+    ["inline-dotenv", {
+      "path": "./.env"
+    }],
+    "transform-react-jsx"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["inline-dotenv"]
+    },
+    "production": {
+      "plugins": ["transform-inline-environment-variables"]
+    },
+    "test": {
+      "presets": [
+        ["next/babel", {
+          "preset-env": {
+            "modules": "commonjs"
+          }
+        }]
+      ],
+      "plugins": ["transform-react-jsx"]
+    }
+  }
+}
